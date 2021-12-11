@@ -192,26 +192,142 @@
             </h2>
             <div class="products-list-page__block">
                 <div class="products-list-page__filter">
-                    <a href="#" class="products-list-page__filter--mob-btn _btn _alt _btn-icon-mode">
+                    <button class="products-list-page__filter--mob-btn _filter-open-btn _btn _alt _btn-icon-mode">
                         Фильтр
                         <span class="products-list-page__filter--mob-btn-icon _icon-filter"></span>
-                    </a>
+                    </button>
                     <div class="products-list-page__filter--block filter">
-                        <div class="filter__header">
-
-                        </div>
+                        <div class="filter__bg"></div>
                         <form action="#" class="filter__form">
-                            <div class="filter__form--price filter__form--item">
-                                <h3 class="filter__form--item-title">
-                                    Цена
-                                </h3>
-                                <div class="filter__form--item-price filter__price">
-                                    <div class="filter__price--header">
-                                        <input type="text" name="price-min" min="0" class="filter__price--value _min-value">
-                                        <input type="text" name="price-min" max="1000" class="filter__price--value _max-value">
-                                        <input type="range" name="price-range" data-start="250" step="1" class="filter__price--range">
+                            <div class="filter__form--body">
+                                <div class="filter__header">
+                                    <button class="filter__header--close-btn _btn _alt _btn-icon-mode" type="button">
+                                        Фильтр
+                                    </button>
+                                </div>
+                                <div class="filter__form--price filter__form--item">
+                                    <h3 class="filter__form--item-title">
+                                        Цена
+                                    </h3>
+                                    <div class="filter__form--item-price filter__price">
+                                        <div class="filter__price--header">
+                                            <label>
+                                                <input type="text" name="price-min" placeholder="0 грн" min="0" class="filter__price--value _min-value">
+                                            </label>
+                                            <label>
+                                                <input type="text" name="price-min" placeholder="1000 грн" max="1000" class="filter__price--value _max-value">    
+                                            </label>
+                                            <label>
+                                                <input type="range" name="price-range" data-start="250" step="1" min="0" max="1000" class="filter__price--range">    
+                                            </label>
+                                        </div>
+                                        <div class="filter__price--range-wrapper">
+                                            <div class="filter__price--range-body"></div>
+                                        </div>
                                     </div>
-                                    <div class="filter__price--range-body"></div>
+                                </div>
+                                <div class="filter__form--products-list filter__form--item">
+                                    <ul class="filter__form--item-list">
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label _active ">
+        <input type="radio" name="product" value="black-eyelashes" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Черные ресницы
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="brown-eyelashes" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Коричневые ресницы
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="colored-eyelashes" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Цветные ресницы
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="adhesives" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Клеи
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="preparation" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Препараты
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="related-products" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Сопутствующие товары
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label _has-filter-drop-down-list">
+        <input type="radio" name="product" value="tweezers" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Пинцеты
+        </span>
+    </label>
+    <ul class="filter__form--item-radio-settings _filter-drop-dowm-list"><li class="filter__form--item-radio-li"><label class="filter__form--item-radio-checkbox-label"><input type="checkbox" name="checkbox-1" value="on" class="filter__form--item-radio-checkbox"><span class="filter__form--item-radio-checkbox-placeholder">90°</span></label></li><li class="filter__form--item-radio-li"><label class="filter__form--item-radio-checkbox-label"><input type="checkbox" name="checkbox-2" value="on" class="filter__form--item-radio-checkbox"><span class="filter__form--item-radio-checkbox-placeholder">45°</span></label></li><li class="filter__form--item-radio-li"><label class="filter__form--item-radio-checkbox-label"><input type="checkbox" name="checkbox-3" value="on" class="filter__form--item-radio-checkbox"><span class="filter__form--item-radio-checkbox-placeholder">Сапоги</span></label></li><li class="filter__form--item-radio-li"><label class="filter__form--item-radio-checkbox-label"><input type="checkbox" name="checkbox-4" value="on" class="filter__form--item-radio-checkbox"><span class="filter__form--item-radio-checkbox-placeholder">Прямые пинцеты</span></label></li><li class="filter__form--item-radio-li"><label class="filter__form--item-radio-checkbox-label"><input type="checkbox" name="checkbox-5" value="on" class="filter__form--item-radio-checkbox"><span class="filter__form--item-radio-checkbox-placeholder">Чехлы</span></label></li></ul>
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="tweezers" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Стартовые наборы
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="lamination" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Ламинирование
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="eyebrow-shaping" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Оформление бровей
+        </span>
+    </label>
+    
+</li>
+                                        <li class="filter__form--item-li">
+    <label class="filter__form--item-radio-label ">
+        <input type="radio" name="product" value="korean-cosmetics" class="filter__form--item-radio">
+        <span class="filter__form--item-radio-placeholder">
+            Корейская косметика
+        </span>
+    </label>
+    
+</li>
+                                    </ul>
                                 </div>
                             </div>
                         </form>
@@ -222,7 +338,7 @@
     <div class="recommend-block__item--body product-card__body">
         <div class="recommend-block__item--header product-card__header">
             <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
+                <li class="product-card__label-list--item _card-label-item">sale</li>
             </ul>
             <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
         </div>
@@ -288,7 +404,7 @@
     <div class="recommend-block__item--body product-card__body">
         <div class="recommend-block__item--header product-card__header">
             <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
+                <li class="product-card__label-list--item _card-label-item">sale</li>
             </ul>
             <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
         </div>
@@ -321,105 +437,7 @@
     <div class="recommend-block__item--body product-card__body">
         <div class="recommend-block__item--header product-card__header">
             <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
-            </ul>
-            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
-        </div>
-        <a href="#" class="recommend-block__item--image product-card__image">
-            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
-        </a>
-        <h3 class="recommend-block__item--title product-card__title">
-            <a href="#" class="recommend-block__item--title-link product-card__title--link">
-                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
-            </a>
-        </h3>
-        <div class="recommend-block__item--text product-card__text">
-            <p>
-                Наша продукция соответствует мировым стандартам качества
-            </p>
-        </div>
-        <div class="recommend-block__item--price product-card__price _old-price-active" data-old-price="3 500 грн">
-            2 700 грн
-        </div>
-        <div class="product-card__footer">
-            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
-                Купить
-                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
-            </a>
-        </div>
-    </div>
-</li>
-
-                    <li class="products-list-page__list--item  product-card">
-    <div class="recommend-block__item--body product-card__body">
-        <div class="recommend-block__item--header product-card__header">
-            <ul class="recommend-block__item--label-list product-card__label-list">
-                
-            </ul>
-            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
-        </div>
-        <a href="#" class="recommend-block__item--image product-card__image">
-            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
-        </a>
-        <h3 class="recommend-block__item--title product-card__title">
-            <a href="#" class="recommend-block__item--title-link product-card__title--link">
-                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
-            </a>
-        </h3>
-        <div class="recommend-block__item--text product-card__text">
-            <p>
-                Наша продукция соответствует мировым стандартам качества
-            </p>
-        </div>
-        <div class="recommend-block__item--price product-card__price " >
-            2 700 грн
-        </div>
-        <div class="product-card__footer">
-            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
-                Купить
-                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
-            </a>
-        </div>
-    </div>
-</li>
-
-                    <li class="products-list-page__list--item  product-card">
-    <div class="recommend-block__item--body product-card__body">
-        <div class="recommend-block__item--header product-card__header">
-            <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
-            </ul>
-            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
-        </div>
-        <a href="#" class="recommend-block__item--image product-card__image">
-            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
-        </a>
-        <h3 class="recommend-block__item--title product-card__title">
-            <a href="#" class="recommend-block__item--title-link product-card__title--link">
-                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
-            </a>
-        </h3>
-        <div class="recommend-block__item--text product-card__text">
-            <p>
-                Наша продукция соответствует мировым стандартам качества
-            </p>
-        </div>
-        <div class="recommend-block__item--price product-card__price _old-price-active" data-old-price="3 500 грн">
-            2 700 грн
-        </div>
-        <div class="product-card__footer">
-            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
-                Купить
-                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
-            </a>
-        </div>
-    </div>
-</li>
-                    <li class="products-list-page__list--item  product-card">
-    <div class="recommend-block__item--body product-card__body">
-        <div class="recommend-block__item--header product-card__header">
-            <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
+                <li class="product-card__label-list--item _card-label-item">sale</li>
             </ul>
             <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
         </div>
@@ -485,7 +503,105 @@
     <div class="recommend-block__item--body product-card__body">
         <div class="recommend-block__item--header product-card__header">
             <ul class="recommend-block__item--label-list product-card__label-list">
-                <li class="product-card__label-list--item">sale</li>
+                <li class="product-card__label-list--item _card-label-item">sale</li>
+            </ul>
+            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
+        </div>
+        <a href="#" class="recommend-block__item--image product-card__image">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
+        </a>
+        <h3 class="recommend-block__item--title product-card__title">
+            <a href="#" class="recommend-block__item--title-link product-card__title--link">
+                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
+            </a>
+        </h3>
+        <div class="recommend-block__item--text product-card__text">
+            <p>
+                Наша продукция соответствует мировым стандартам качества
+            </p>
+        </div>
+        <div class="recommend-block__item--price product-card__price _old-price-active" data-old-price="3 500 грн">
+            2 700 грн
+        </div>
+        <div class="product-card__footer">
+            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
+                Купить
+                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
+            </a>
+        </div>
+    </div>
+</li>
+                    <li class="products-list-page__list--item  product-card">
+    <div class="recommend-block__item--body product-card__body">
+        <div class="recommend-block__item--header product-card__header">
+            <ul class="recommend-block__item--label-list product-card__label-list">
+                <li class="product-card__label-list--item _card-label-item">sale</li>
+            </ul>
+            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
+        </div>
+        <a href="#" class="recommend-block__item--image product-card__image">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
+        </a>
+        <h3 class="recommend-block__item--title product-card__title">
+            <a href="#" class="recommend-block__item--title-link product-card__title--link">
+                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
+            </a>
+        </h3>
+        <div class="recommend-block__item--text product-card__text">
+            <p>
+                Наша продукция соответствует мировым стандартам качества
+            </p>
+        </div>
+        <div class="recommend-block__item--price product-card__price _old-price-active" data-old-price="3 500 грн">
+            2 700 грн
+        </div>
+        <div class="product-card__footer">
+            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
+                Купить
+                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
+            </a>
+        </div>
+    </div>
+</li>
+
+                    <li class="products-list-page__list--item  product-card">
+    <div class="recommend-block__item--body product-card__body">
+        <div class="recommend-block__item--header product-card__header">
+            <ul class="recommend-block__item--label-list product-card__label-list">
+                
+            </ul>
+            <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
+        </div>
+        <a href="#" class="recommend-block__item--image product-card__image">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="recommend-block__item--image-img product-card__image--img">
+        </a>
+        <h3 class="recommend-block__item--title product-card__title">
+            <a href="#" class="recommend-block__item--title-link product-card__title--link">
+                PLATINUM / 20 ЛИНИЙ / МИКС С ИЗГИБ
+            </a>
+        </h3>
+        <div class="recommend-block__item--text product-card__text">
+            <p>
+                Наша продукция соответствует мировым стандартам качества
+            </p>
+        </div>
+        <div class="recommend-block__item--price product-card__price " >
+            2 700 грн
+        </div>
+        <div class="product-card__footer">
+            <a href="#" class="recommend-block__item--buy-btn _btn _alt _btn-icon-mode product-card__buy-btn">
+                Купить
+                <span class="recommend-block__item--buy-btn-icon product-card__buy-btn--icon _icon-cart"></span>
+            </a>
+        </div>
+    </div>
+</li>
+
+                    <li class="products-list-page__list--item  product-card">
+    <div class="recommend-block__item--body product-card__body">
+        <div class="recommend-block__item--header product-card__header">
+            <ul class="recommend-block__item--label-list product-card__label-list">
+                <li class="product-card__label-list--item _card-label-item">sale</li>
             </ul>
             <a href="#" class="recommend-block__item--favorite product-card__favorite _icon-favorite" title="Добавить в избранное"></a>
         </div>
@@ -520,6 +636,7 @@
 </div>
 
     <footer class="footer">
+
         <div class="footer__bg">
             <div class="footer__bg--elem _bg-text"></div>
             <div class="footer__bg--elem _bg-image">
@@ -529,9 +646,6 @@
                 </picture>
             </div>
             <div class="footer__bg--elem _footer-bg-gradient"></div>
-            <a href="#top" class="footer__btn-to-top _btn-to-scroll">
-                вверх
-            </a>
         </div>
         <div class="footer__container _container">
             <div class="footer__block footer__block--intro">
@@ -748,7 +862,9 @@
                 </div>
             </div>
         </div>
-        
+        <a href="#top" class="footer__btn-to-top _btn-to-scroll">
+            вверх
+        </a>
     </footer>
 
     <script src="js/libs.min.js"></script>
