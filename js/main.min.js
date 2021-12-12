@@ -476,6 +476,17 @@ body.addEventListener('click', function (e) {
 
 
 
+    if(e.target.closest('._hiddenToggle-btn')) {
+        let thisBtn     = e.target.closest('._hiddenToggle-btn'),
+            block       = document.querySelector(thisBtn.getAttribute('href'));
+        e.preventDefault();
+
+        if(!thisBtn.classList.contains('_active')) {
+            thisBtn.classList.add('_active');
+            hiddenToggle(thisBtn.getAttribute('href')).show();
+            block.classList.add('_active');
+        }
+    }
 
 
 
@@ -585,6 +596,41 @@ try {
 
 // }
 
+const hiddenToggleList = document.querySelectorAll('._hiddenToggle');
+
+function hiddenToggle(id) {
+    let elem    = document.querySelector(id),
+        btn     = document.querySelector(`[href="${id}"]`);
+    return {
+        show: function () {
+
+            if(elem && !elem.classList.contains('_active')) {
+                btn.classList.remove('_visible');
+                for(let i = 0; i < elem.children.length; i++) {
+            
+                    elem.children[i].style.display = 'block';
+        
+                }
+
+            }
+        },
+
+        hide: function() {
+            if(elem && !elem.classList.contains('_active')) {
+                let length = Number(elem.dataset.hiddenToggleLength);
+                btn.classList.add('_visible');
+                for(let i = 0; i < elem.children.length; i++) {
+            
+                    if(i>=length) {
+                        elem.children[i].style.display = 'none';
+                    }
+            
+                }
+            }
+        }
+
+    }
+}
 
 
   // Media запросы {
@@ -599,6 +645,12 @@ try {
       }
       
       let resizeCheck = {};
+
+
+
+      
+      
+
 
       function resizeCheckFunc(size, minWidth, maxWidth) {
         
@@ -652,6 +704,8 @@ try {
             if(pageAddress) {
                 pageAddressInit.append(pageAddress);
             }
+
+            hiddenToggle('#hiddenToggle-services-list').show();
             
         },
         function () {
@@ -659,6 +713,8 @@ try {
             if(pageAddress) {
                 pageAddressPlace.append(pageAddress);
             }
+
+            hiddenToggle('#hiddenToggle-services-list').hide();
           
         });
 
@@ -671,6 +727,8 @@ try {
                 });
             }
             
+            hiddenToggle('#hiddenToggle-services-gallery').show();
+            
         },
         function () {
           
@@ -679,6 +737,8 @@ try {
                     mobMenu.append(element[0]);
                 });
             }
+
+            hiddenToggle('#hiddenToggle-services-gallery').hide();
           
         });
       
