@@ -111,25 +111,25 @@ function fade(element, type, duration) {
                 element.style.visibility = 'visible';
             }
             if (opacity < 1) {
-                opacity = opacity + 0.05
+                opacity = opacity + 0.02
                 element.style.opacity = opacity;
             } else {
                 clearInterval(intervalID);
             }
-        }, (duration) ? duration : 10);
+        }, (duration) ? duration : 1);
 
     } else if(type == 'hide') {
         let opacity = 1,
             intervalID = setInterval(function() {
 
             if (opacity > 0.01) {
-                opacity = opacity - 0.05
+                opacity = opacity - 0.02
                 element.style.opacity = opacity;
             } else {
                 clearInterval(intervalID);
                 element.style.visibility = 'hidden';
             }
-        }, (duration) ? duration : 10);
+        }, (duration) ? duration : 1);
     }
 
 
@@ -166,12 +166,13 @@ function popup(arg) {
     function removeFunc(popup, duration) {
 
         /* fade(popup, 'hide'); */
+        fade(popup, 'hide');
         popup.classList.remove('_active');
         setTimeout(function() {
             
             body.classList.remove('_popup-active');
             html.style.setProperty('--popup-padding', '0px');
-        },(duration) ? duration : 200)
+        },(duration) ? duration : 400)
         
     }
 
@@ -181,6 +182,7 @@ function popup(arg) {
 
     popupActive.forEach(element => {
         element.classList.remove('_active');
+        /* fade(popup, 'hide'); */
         //fade(popup, 'hide');
         /* body.classList.add('_popup-active');
         html.style.setProperty('--popup-padding',  + 17 + 'px'); */
@@ -195,7 +197,10 @@ function popup(arg) {
     //window.location.hash = id;
 
     popup.classList.add('_active');
-    //fade(popup, 'show');
+    setTimeout(function () {
+        fade(popup, 'show');
+    },100);
+    
 
     
 
@@ -203,14 +208,14 @@ function popup(arg) {
         removeFunc(popup);
         setTimeout(function() {
             return false;
-        },200)
+        },400)
     });
 
     popupCloseBtn.addEventListener('click', function() {
         removeFunc(popup);
         setTimeout(function() {
             return false;
-        },200)
+        },400)
     });
 
 }
@@ -351,10 +356,10 @@ body.addEventListener('click', function (e) {
         
     }
 
-    if(e.target.closest('._review-more-link')) {
+    if(e.target.closest('._review-item-more-link')) {
         e.preventDefault();
 
-        const thisElem = e.target.closest('._review-more-link'),
+        const thisElem = e.target.closest('._review-item-more-link'),
               reviewParent = thisElem.closest('._review-item');
         
         if(!reviewParent.classList.contains('_active')) {
@@ -705,7 +710,7 @@ function hiddenToggle(id) {
                 pageAddressInit.append(pageAddress);
             }
 
-            hiddenToggle('#hiddenToggle-services-list').show();
+            hiddenToggle('#hiddenToggle-partners-our').show();
             
         },
         function () {
@@ -715,6 +720,7 @@ function hiddenToggle(id) {
             }
 
             hiddenToggle('#hiddenToggle-services-list').hide();
+            
           
         });
 
@@ -728,7 +734,8 @@ function hiddenToggle(id) {
             }
             
             hiddenToggle('#hiddenToggle-services-gallery').show();
-            
+            hiddenToggle('#hiddenToggle-services-list').show();
+
         },
         function () {
           
@@ -739,6 +746,7 @@ function hiddenToggle(id) {
             }
 
             hiddenToggle('#hiddenToggle-services-gallery').hide();
+            hiddenToggle('#hiddenToggle-partners-our').hide();
           
         });
       
