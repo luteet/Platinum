@@ -442,12 +442,23 @@ body.addEventListener('click', function (e) {
     if(e.target.closest('._btn-to-scroll')) {
     
         e.preventDefault();
+
+        let thisBtn = e.target.closest('._btn-to-scroll'),
+            section;
+
+        try {
+            section = document.querySelector(thisBtn.getAttribute('href'));
+            history.replaceState("", "", thisBtn.getAttribute('href'));
+        } catch {
+            section = body;
+        }
+
         menu.forEach(elem => {
             elem.classList.remove('_active')
         })
         window.scroll({
             left: 0, 
-            top: 0, 
+            top: section.offsetTop, 
             behavior: 'smooth'
         })
     
@@ -491,6 +502,37 @@ body.addEventListener('click', function (e) {
             hiddenToggle(thisBtn.getAttribute('href')).show();
             block.classList.add('_active');
         }
+    }
+
+
+
+
+    if(e.target.closest('._remove-btn')) {
+        let thisItem = e.target.closest('._remove-btn'),
+            removeItem = thisItem.closest('._remove-item');
+
+
+        fade(removeItem, 'hide');
+
+        setTimeout(function () {
+            thisItem.closest('._remove-item').remove();
+        },400)
+        
+        
+    }
+
+
+
+
+    if(e.target.closest('._read-more-btn')) {
+        e.preventDefault();
+
+        let thisBtn = e.target.closest('._read-more-btn'),
+            readMoreItem = thisBtn.closest('._read-more-item');
+
+        thisBtn.classList.add('_active');
+        readMoreItem.classList.add('_active');
+
     }
 
 

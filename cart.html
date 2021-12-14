@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="SHORTCUT ICON" href="img/logo.svg" type="image/svg"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
@@ -165,7 +164,7 @@
                             <a href="#" class="header__nav--favorites-link _icon-favorite" title="Избранное"></a>
                         </div>
                         <div class="header__nav--cart">
-                            <a href="#" class="header__nav--cart-link _icon-cart" title="Корзина">
+                            <a href="cart.html" class="header__nav--cart-link _icon-cart" title="Корзина">
                                 <span class="header__nav--cart-count">1</span>
                             </a>
                         </div>
@@ -204,24 +203,189 @@
                 Корзина
             </h2>
             <form action="#" class="cart-page__form">
-                <ul class="cart-page__list">
-                    <li class="cart-page__item">
-                        <div class="cart-page__item--image">
-                            <picture>
-                                <source srcset="img/product/image.webp" type="image/webp">
-                                <img src="img/product/image.png" loading="lazy" width="0" alt="" class="cart-page__item--image-img">
-                            </picture>
+                <div class="cart-page__list-wrapper _scroll-section-wrapper">
+                    <ul class="cart-page__list _scrollbar-style _scroll-section-list">
+                        <li class="cart-page__item _remove-item">
+    <button type="button" class="cart-page__item--remove-btn _remove-btn" title="Удалить товар из корзины">✕</button>
+    <div class="cart-page__item--image">
+        <picture>
+            <source srcset="img/product/image.webp" type="image/webp">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="cart-page__item--image-img">
+        </picture>
+    </div>
+    <div class="cart-page__item--content">
+        <input type="text" name="product-name-1" value="PLATINUM / 20 линий / микс С изгиб" hidden>
+        <h3 class="cart-page__item--title _title _min">
+            <a href="product-page.html" class="cart-page__item--title-link">
+                PLATINUM / 20 линий / микс С изгиб 1
+            </a>
+        </h3>
+        <ul class="cart-page__item--info-list">
+            <li class="cart-page__item--info-item">
+                <input type="text" name="weight-1" value="0.05" hidden>
+                Толщина: 0.05
+            </li>
+            <li class="cart-page__item--info-item">
+                <input type="text" name="length-1" value="7-12" hidden>
+                Длина: 7-12mm
+            </li>
+        </ul>
+        <div class="cart-page__item--count">
+            <button class="cart-page__item--count-btn-minus _btn-minus _min-btn" type="button">-</button>
+            <input type="number" value="1" name="count-product-1" readonly placeholder="1" class="cart-page__item--count-input _input-number _min-input-number">
+            <button class="cart-page__item--count-btn-plus _btn-plus _min-btn" type="button">+</button>
+        </div>
+        <div class="cart-page__item--price _title">
+            <input type="text" name="price-1" value="270 грн" hidden>
+            270 грн
+        </div>
+    </div>
+</li>
+                        <li class="cart-page__item _remove-item">
+    <button type="button" class="cart-page__item--remove-btn _remove-btn" title="Удалить товар из корзины">✕</button>
+    <div class="cart-page__item--image">
+        <picture>
+            <source srcset="img/product/image.webp" type="image/webp">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="cart-page__item--image-img">
+        </picture>
+    </div>
+    <div class="cart-page__item--content">
+        <input type="text" name="product-name-2" value="PLATINUM / 20 линий / микс С изгиб" hidden>
+        <h3 class="cart-page__item--title _title _min">
+            <a href="product-page.html" class="cart-page__item--title-link">
+                PLATINUM / 20 линий / микс С изгиб 2
+            </a>
+        </h3>
+        <ul class="cart-page__item--info-list">
+            <li class="cart-page__item--info-item">
+                <input type="text" name="weight-2" value="0.05" hidden>
+                Толщина: 0.05
+            </li>
+            <li class="cart-page__item--info-item">
+                <input type="text" name="length-2" value="7-12" hidden>
+                Длина: 7-12mm
+            </li>
+        </ul>
+        <div class="cart-page__item--count">
+            <button class="cart-page__item--count-btn-minus _btn-minus _min-btn" type="button">-</button>
+            <input type="number" value="1" name="count-product-2" readonly placeholder="1" class="cart-page__item--count-input _input-number _min-input-number">
+            <button class="cart-page__item--count-btn-plus _btn-plus _min-btn" type="button">+</button>
+        </div>
+        <div class="cart-page__item--price _title">
+            <input type="text" name="price-2" value="270 грн" hidden>
+            270 грн
+        </div>
+    </div>
+</li>
+                        <li class="cart-page__item _remove-item">
+    <button type="button" class="cart-page__item--remove-btn _remove-btn" title="Удалить товар из корзины">✕</button>
+    <div class="cart-page__item--image">
+        <picture>
+            <source srcset="img/product/image.webp" type="image/webp">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="cart-page__item--image-img">
+        </picture>
+    </div>
+    <div class="cart-page__item--content">
+        <input type="text" name="product-name-3" value="PLATINUM / 20 линий / микс С изгиб" hidden>
+        <h3 class="cart-page__item--title _title _min">
+            <a href="product-page.html" class="cart-page__item--title-link">
+                PLATINUM / 20 линий / микс С изгиб 3
+            </a>
+        </h3>
+        <ul class="cart-page__item--info-list">
+            <li class="cart-page__item--info-item">
+                <input type="text" name="weight-3" value="0.05" hidden>
+                Толщина: 0.05
+            </li>
+            <li class="cart-page__item--info-item">
+                <input type="text" name="length-3" value="7-12" hidden>
+                Длина: 7-12mm
+            </li>
+        </ul>
+        <div class="cart-page__item--count">
+            <button class="cart-page__item--count-btn-minus _btn-minus _min-btn" type="button">-</button>
+            <input type="number" value="1" name="count-product-3" readonly placeholder="1" class="cart-page__item--count-input _input-number _min-input-number">
+            <button class="cart-page__item--count-btn-plus _btn-plus _min-btn" type="button">+</button>
+        </div>
+        <div class="cart-page__item--price _title">
+            <input type="text" name="price-3" value="270 грн" hidden>
+            270 грн
+        </div>
+    </div>
+</li>
+                        <li class="cart-page__item _remove-item">
+    <button type="button" class="cart-page__item--remove-btn _remove-btn" title="Удалить товар из корзины">✕</button>
+    <div class="cart-page__item--image">
+        <picture>
+            <source srcset="img/product/image.webp" type="image/webp">
+            <img src="img/product/image.png" loading="lazy" width="200" alt="" class="cart-page__item--image-img">
+        </picture>
+    </div>
+    <div class="cart-page__item--content">
+        <input type="text" name="product-name-4" value="PLATINUM / 20 линий / микс С изгиб" hidden>
+        <h3 class="cart-page__item--title _title _min">
+            <a href="product-page.html" class="cart-page__item--title-link">
+                PLATINUM / 20 линий / микс С изгиб 4
+            </a>
+        </h3>
+        <ul class="cart-page__item--info-list">
+            <li class="cart-page__item--info-item">
+                <input type="text" name="weight-4" value="0.05" hidden>
+                Толщина: 0.05
+            </li>
+            <li class="cart-page__item--info-item">
+                <input type="text" name="length-4" value="7-12" hidden>
+                Длина: 7-12mm
+            </li>
+        </ul>
+        <div class="cart-page__item--count">
+            <button class="cart-page__item--count-btn-minus _btn-minus _min-btn" type="button">-</button>
+            <input type="number" value="1" name="count-product-4" readonly placeholder="1" class="cart-page__item--count-input _input-number _min-input-number">
+            <button class="cart-page__item--count-btn-plus _btn-plus _min-btn" type="button">+</button>
+        </div>
+        <div class="cart-page__item--price _title">
+            <input type="text" name="price-4" value="270 грн" hidden>
+            270 грн
+        </div>
+    </div>
+</li>
+                    </ul> 
+                </div>
+                <div class="cart-page__result cart-result">
+                    <div class="cart-page__result--body cart-result__body">
+                        <div class="cart-page__result--header cart-result__header">
+                            <h2 class="cart-page__result--title cart-result__title _title _large">
+                                Итого
+                            </h2>
+                            <div class="cart-page__result--price _title _large cart-result__price">
+                                2 700 грн
+                            </div>
+                            <div class="cart-page__result--without-price cart-result__without-price">
+                                <span class="cart-page__result--without-price-text cart-result__without-price--text">
+                                    Цена без скидки
+                                </span>
+                                <div class="cart-page__result--without-price-value cart-result__without-price--value">
+                                    3 000 грн
+                                </div>
+                            </div>
                         </div>
-                        <div class="cart-page__item--info">
-                            <h3 class="cart-page__item--title _title">
-                                PLATINUM / 20 линий / микс С изгиб
-                            </h3>
-                            
+                        <div class="cart-page__result--footer cart-result__footer">
+                            <a href="#" class="cart-page__result--delivery cart-result__delivery _btn _disable-style _btn-icon-mode">
+                                Доставка и оплата
+                                <span class="cart-page__result--delivery-icon cart-result__delivery--icon _icon-question"></span>
+                            </a>
+                            <button type="submit" class="cart-page__result--submit cart-result__submit _btn">
+                                Оформить заказ
+                            </button>
                         </div>
-                    </li>
-                </ul> 
+                    </div>
+                </div>
             </form>
-            
+            <div class="cart-page__footer">
+                <a href="#" class="cart-page__return-link _btn _alt">
+                    Назад к покупкам
+                </a>
+            </div>
         </div>
     </section>
 </div>
@@ -261,37 +425,37 @@
 </h2>
                     <ul class="footer__nav--list">
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="/" class="footer__nav--link ">
         Главная
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Продукция
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="order.html" class="footer__nav--link ">
         Оплата
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="delivery-and-pay.html" class="footer__nav--link ">
         Доставка
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="discond.html" class="footer__nav--link ">
         Дисконт
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="about-us.html" class="footer__nav--link ">
         О нас
     </a>
     
@@ -304,67 +468,67 @@
 </h2>
                     <ul class="footer__nav--list">
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Черные ресницы
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Коричневые ресницы
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Цветные ресницы
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Клеи
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Препараты
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Сопутствующие товары
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Пинцеты
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Стартовые наборы
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Ламинирование
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Оформление бровей
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="product-list-page.html" class="footer__nav--link ">
         Корейская косметика
     </a>
     
@@ -377,31 +541,31 @@
 </h2>
                     <ul class="footer__nav--list">
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="services.html" class="footer__nav--link ">
         Услуги
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="study.html" class="footer__nav--link ">
         Обучение
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="reviews.html" class="footer__nav--link ">
         Отзывы
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="partners.html" class="footer__nav--link ">
         Сотрудничество
     </a>
     
 </li>
                         <li class="footer__nav--item">
-    <a href="#" class="footer__nav--link ">
+    <a href="contacts.html" class="footer__nav--link ">
         Контакты
     </a>
     
@@ -453,7 +617,7 @@
                 </div>
             </div>
         </div>
-        <a href="#top" class="footer__btn-to-top _btn-to-scroll">
+        <a href="#" class="footer__btn-to-top _btn-to-scroll">
             вверх
         </a>
     </footer>
