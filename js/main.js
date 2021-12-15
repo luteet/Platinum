@@ -603,11 +603,14 @@ body.addEventListener('click', function (e) {
             videoElem = thisPoster.parentNode.querySelector('._video-elem');
 
         thisPoster.classList.add('_active');
-        videoElem.classList.add('_active');
 
         setTimeout(() => {
+            videoElem.classList.add('_active');
+            videoElem.parentNode.classList.add('_active');
+        },400)
+        setTimeout(() => {
             videoElem.play();
-        },200)
+        },800)
 
         
 
