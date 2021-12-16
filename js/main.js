@@ -1,5 +1,5 @@
 
-
+// Выпадающий список
 function slide(target, type) {
     
     let slideUp = (target, duration=500) => {
@@ -102,6 +102,8 @@ function slide(target, type) {
 
 let widthScrollBar;
 
+
+// Fade In и Fade out
 function fade(element, type, duration) {
 
     if(type == 'show') {
@@ -137,14 +139,7 @@ function fade(element, type, duration) {
 
 
 
-/* document.querySelectorAll('._popup').forEach(element => {
-    element.style.visibility = 'visible';
-
-    setTimeout(() => {
-        element.style.visibility = '';
-    },1000)
-}) */
-
+// Попап
 function popup(arg) {
 
     let popup, popupBg, popupCloseBtn,
@@ -220,7 +215,7 @@ function popup(arg) {
 
 }
 
-
+// Галерея
 function galleryPopup(arg) {
 
     let galleryPopupBlock = 
@@ -270,32 +265,6 @@ function galleryPopup(arg) {
 
 
 
-/* 
-function popupInit() {
-    let hash = window.location.hash,
-        popupElem;
-
-    try {
-        popupElem = document.querySelector(hash);
-    } catch {
-        return false;
-    }
-
-    if(popupElem.classList.contains('_popup')) {
-        popup(hash);
-    }
-    
-}
-
-popupInit(); */
-
-
-
-
-
-
-
-
 
 const body = document.querySelector('body'),
     html = document.querySelector('html'),
@@ -304,23 +273,6 @@ const body = document.querySelector('body'),
     header = document.querySelector('.header');
 
   
-/* body.addEventListener("mouseover", function(e) {
-    
-    console.log('mouseover');
-    if(e.target.closest('._header-drop-down')) {
-        e.target.closest('._header-drop-down').querySelector('._header-drop-down-btn').classList.add('_active');
-    }
-    
-}, false);
-    
-body.addEventListener("mouseout", function(e) {
-    
-    console.log('mouseout');
-    if(e.target.closest('._header-drop-down')) {
-        e.target.closest('._header-drop-down').querySelector('._header-drop-down-btn').classList.remove('_active');
-    }
-    
-}, false); */
 
 const   filterDropDownLabel = document.querySelectorAll('._has-filter-drop-down-list'),
         filterFormRadioLabel = document.querySelectorAll('.filter__form--item-radio-label');
@@ -330,6 +282,7 @@ function filterRadioLabelFunc(element) {
     if(!element.classList.contains('_active')) {
         filterFormRadioLabel.forEach(element => {
 
+            // Если есть выпадающий список в элементе то открывать его
             if(element.classList.contains('_has-filter-drop-down-list')) {
 
                 let filterDropDownList = element.parentNode.querySelector('._filter-drop-dowm-list._active');
@@ -369,6 +322,7 @@ filterFormRadioLabel.forEach(element => {
         filterRadioLabelFunc(element);
     }
 
+    // При нажатии на label добавлять input[radio] статус checked
     element.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -388,12 +342,7 @@ const   filter          = document.querySelector('.filter'),
 
 body.addEventListener('click', function (e) {
 
-    //console.log(e.target);
-    // Меню в шапке
-
-
-
-
+    // Добавить или удалить количество товаров
     if(e.target.closest('._btn-plus')) {
         const inputNumber = e.target.closest('._btn-plus').parentNode.querySelector('._input-number');
 
@@ -406,6 +355,14 @@ body.addEventListener('click', function (e) {
         if(Number(inputNumber.value) != 1) inputNumber.value = Number(inputNumber.value) - 1;
         
     }
+
+
+
+
+
+
+
+
 
     if(e.target.closest('._review-item-more-link')) {
         e.preventDefault();
@@ -425,6 +382,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Попап
     if(e.target.closest('._popup-btn')) {
         e.preventDefault();
         popup({
@@ -439,6 +400,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Фильтр в product-list-page
     if(e.target.closest('.filter__form--item-radio-checkbox-label')) {
         e.preventDefault();
         
@@ -477,7 +442,11 @@ body.addEventListener('click', function (e) {
 
 
 
-    
+
+
+
+
+    // Меню в шапке
     if (e.target.closest('._burger')) {
         
         menu.forEach(elem => {
@@ -490,6 +459,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Скролл при нажатии на кнопку
     if(e.target.closest('._btn-to-scroll')) {
     
         e.preventDefault();
@@ -520,6 +493,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Выпадающий список товаров в шапке
     if(e.target.closest('._header-drop-down-btn') && !e.target.closest('._header-drop-down-btn._active')) {
         e.preventDefault();
 
@@ -543,6 +520,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Кнопка "ПОКАЗАТЬ ЕЩЕ"
     if(e.target.closest('._hiddenToggle-btn')) {
         let thisBtn     = e.target.closest('._hiddenToggle-btn'),
             block       = document.querySelector(thisBtn.getAttribute('href'));
@@ -561,6 +542,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Удаление товаров с корзины
     if(e.target.closest('._remove-btn')) {
         let thisItem = e.target.closest('._remove-btn'),
             removeItem = thisItem.closest('._remove-item');
@@ -580,6 +565,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Кнопка "Читать полностью"
     if(e.target.closest('._read-more-btn')) {
         e.preventDefault();
 
@@ -597,6 +586,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Картинка с текстом и кнопкой "PLAY", при нажатии которой запускаеться видео
     if(e.target.closest('._video-poster')) {
 
         let thisPoster = e.target.closest('._video-poster'),
@@ -619,6 +612,10 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+    // Галерея. При нажатии на картинку, открываеться попап с картинкой
     if (e.target.closest('._gallery-popup-link')) {
         let link = e.target.closest('._gallery-popup-link');
         
@@ -636,12 +633,22 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
+
 })
+
+
+
+
+
 
 function is_touch_device() {
   return !!('ontouchstart' in window);
 }
 
+// Слайдеры {
 
 new Swiper('.recommend-block__slider', {
   
@@ -673,6 +680,11 @@ new Swiper('.recommend-block__slider', {
 
 
 let teachersSlider;
+
+// }
+
+
+
 
 // КАСТОМНЫЙ input range {
 
@@ -732,6 +744,11 @@ try {
 
 // }
 
+
+
+
+// Скрывание блоков и открытие блоков (Секции где есть кнопка "ПОКАЗАТЬ ЕЩЕ")
+
 const hiddenToggleList = document.querySelectorAll('._hiddenToggle');
 
 function hiddenToggle(id) {
@@ -751,7 +768,7 @@ function hiddenToggle(id) {
             }
         },
 
-        hide: function(length) {
+        hide: function(length) { // length это количество елементов которые нужно спрятать
             if(elem && !elem.classList.contains('_active')) {
                 
                 btn.classList.add('_visible');
@@ -769,17 +786,8 @@ function hiddenToggle(id) {
 }
 
 
-  // Media запросы {
-
-    function debounce(func, time){
-        var time = time || 100;
-        var timer;
-        return function(event){
-            if(timer) clearTimeout(timer);
-            timer = setTimeout(func, time, event);
-        };
-      }
-      
+// Media запросы {
+    
       let resizeCheck = {};
 
 
@@ -815,8 +823,9 @@ function hiddenToggle(id) {
       }
 
 
-      
-      let appendToMobMenuItems = document.querySelectorAll('._append-to-mob-menu-768'),
+    // Вставка елементов DOM в шапке {
+
+    let appendToMobMenuItems = document.querySelectorAll('._append-to-mob-menu-768'),
           appendToMobMenuItemsArray = [],
           mobMenu = document.querySelector('.header__nav--mobile-body');
 
@@ -830,6 +839,8 @@ function hiddenToggle(id) {
         pageAddressInit = document.querySelector('.page-address-init'),
         pageAddressPlace = document.querySelector('._page-address-place');
 
+    // }
+
       function resize() {
         
       windowSize = window.innerWidth;
@@ -837,7 +848,7 @@ function hiddenToggle(id) {
       
 
       resizeCheckFunc(768, 
-        function () {
+        function () { // Когда экран больше 768px
     
             if(appendToMobMenuItems) {
                 appendToMobMenuItemsArray.forEach(element => {
@@ -845,7 +856,7 @@ function hiddenToggle(id) {
                 });
             }
 
-
+            
             if(teachersSlider) teachersSlider.destroy(true, true);
 
 
@@ -855,7 +866,7 @@ function hiddenToggle(id) {
             hiddenToggle('#hiddenToggle-offline-study-list').hide(4);
 
         },
-        function () {
+        function () { // Когда экран меньше 768px
           
             if(appendToMobMenuItems) {
                 appendToMobMenuItemsArray.forEach(element => {
@@ -885,7 +896,7 @@ function hiddenToggle(id) {
     });
     
     resizeCheckFunc(992, 
-        function () {
+        function () {  // Когда экран больше 992px
     
             if(pageAddress) {
                 pageAddressInit.append(pageAddress);
@@ -898,7 +909,7 @@ function hiddenToggle(id) {
             hiddenToggle('#hiddenToggle-offline-study-list').show();
             
         },
-        function () {
+        function () {  // Когда экран меньше 992px
           
             if(pageAddress) {
                 pageAddressPlace.append(pageAddress);
