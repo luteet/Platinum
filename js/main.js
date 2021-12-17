@@ -949,30 +949,33 @@ function hiddenToggle(id) {
     header.classList.add('_loaded');
     
     function scrollPageFunc() {
-      top[0] = getCoords(offsetCheckJs).top;
-      
-      if(top[0] >= 300 && top[1] == false) {
-    
-          top[1] = true;
-          header.style.setProperty('--pos', '-100%');
-    
-          setTimeout(function() {
-              header.classList.add('_active');
-              header.style.setProperty('--pos', '0%');
-          },200);
-    
-      } else if(top[0] <= 300 && top[1] == true) {
-    
-          top[1] = false;
-          header.style.setProperty('--pos', '-100%');
-    
-          setTimeout(function() {
-              header.style.setProperty('--pos', '0%');
-              header.classList.remove('_active');
-              
-          },200);
-    
-      }
+        if(windowSize < 768) {
+            top[0] = getCoords(offsetCheckJs).top;
+            
+            if(top[0] >= 300 && top[1] == false) {
+            
+                top[1] = true;
+                header.style.setProperty('--pos', '-100%');
+            
+                setTimeout(function() {
+                    header.classList.add('_active');
+                    header.style.setProperty('--pos', '0%');
+                },200);
+            
+            } else if(top[0] <= 300 && top[1] == true) {
+            
+                top[1] = false;
+                header.style.setProperty('--pos', '-100%');
+            
+                setTimeout(function() {
+                    header.style.setProperty('--pos', '0%');
+                    header.classList.remove('_active');
+                    
+                },200);
+            
+            }
+            
+        }
     }
     
     scrollPageFunc();
