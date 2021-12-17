@@ -146,6 +146,7 @@ function popup(arg) {
     
         body    = arg.body,
         html    = arg.html,
+        header  = arg.header,
         id      = arg.id;
 
     try {
@@ -163,6 +164,7 @@ function popup(arg) {
         /* fade(popup, 'hide'); */
         fade(popup, 'hide');
         popup.classList.remove('_active');
+        header.classList.remove('_popup-active');
         setTimeout(function() {
             
             body.classList.remove('_popup-active');
@@ -192,6 +194,8 @@ function popup(arg) {
     //window.location.hash = id;
 
     popup.classList.add('_active');
+    header.classList.add('_popup-active');
+
     setTimeout(function () {
         fade(popup, 'show');
     },100);
@@ -302,12 +306,8 @@ function filterRadioLabelFunc(element) {
 
 
         if(element.classList.contains('_has-filter-drop-down-list')) {
-            console.log(element.parentNode.querySelector('._filter-drop-dowm-list'));
-            const dropDownList = element.parentNode.querySelector('._filter-drop-dowm-list');
-    
-            dropDownList.classList.add('_active');
             
-            slide(dropDownList, 'down');
+            
 
         }
 
@@ -315,7 +315,7 @@ function filterRadioLabelFunc(element) {
 
 }
 
-filterFormRadioLabel.forEach(element => {
+/* filterFormRadioLabel.forEach(element => {
 
     if(element.classList.contains('_active')) {
         element.querySelector('input').checked = true;
@@ -332,7 +332,7 @@ filterFormRadioLabel.forEach(element => {
         
     });
 
-});
+}); */
 
 
 
@@ -392,6 +392,7 @@ body.addEventListener('click', function (e) {
             id: e.target.closest('._popup-btn').getAttribute('href'),
             html: html,
             body: body,
+            header: header,
         });
     }
 
@@ -404,7 +405,7 @@ body.addEventListener('click', function (e) {
 
 
     // Фильтр в product-list-page
-    if(e.target.closest('.filter__form--item-radio-checkbox-label')) {
+    /* if(e.target.closest('.filter__form--item-radio-checkbox-label')) {
         e.preventDefault();
         
         const checkboxLabel         = e.target.closest('.filter__form--item-radio-checkbox-label'),
@@ -415,6 +416,21 @@ body.addEventListener('click', function (e) {
 
 
         if(checkboxLabelInput.checked) checkboxLabel.classList.add('_active'); else checkboxLabel.classList.remove('_active');
+
+    } */
+
+    if(e.target.closest('.filter__form--item-link._has-filter-drop-down-list')) {
+        e.preventDefault();
+
+        const thisBtn = e.target.closest('.filter__form--item-link._has-filter-drop-down-list'),
+              dropDownList = thisBtn.parentNode.querySelector('._filter-drop-dowm-list');
+
+        if(!dropDownList.classList.contains('_active')) {
+            dropDownList.classList.add('_active');
+            
+            slide(dropDownList, 'down');    
+        }
+        
 
     }
 
@@ -861,8 +877,11 @@ function hiddenToggle(id) {
 
 
             hiddenToggle('#hiddenToggle-partners-our').show();
+
             hiddenToggle('#hiddenToggle-offline-study-list').show();
+
             hiddenToggle('#hiddenToggle-study-gallery').show();
+
             hiddenToggle('#hiddenToggle-offline-study-list').hide(4);
 
         },
@@ -888,10 +907,17 @@ function hiddenToggle(id) {
             }
             
 
+
+
             hiddenToggle('#hiddenToggle-services-gallery').hide(2);
+
             hiddenToggle('#hiddenToggle-partners-our').hide(2);
+
             hiddenToggle('#hiddenToggle-study-gallery').hide(2);
+
             hiddenToggle('#hiddenToggle-offline-study-list').hide(2);
+
+
           
     });
     
@@ -902,11 +928,20 @@ function hiddenToggle(id) {
                 pageAddressInit.append(pageAddress);
             }
 
+
+
             hiddenToggle('#hiddenToggle-products-list').show();
+
             hiddenToggle('#hiddenToggle-partners-our').show();
+            hiddenToggle('#hiddenToggle-partners-our').hide(4);
+
             hiddenToggle('#hiddenToggle-services-list').show();
+
             hiddenToggle('#hiddenToggle-services-gallery').show();
+
             hiddenToggle('#hiddenToggle-offline-study-list').show();
+
+
             
         },
         function () {  // Когда экран меньше 992px
