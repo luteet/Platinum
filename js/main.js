@@ -359,6 +359,18 @@ body.addEventListener('click', function (e) {
 
 
 
+    if(e.target.closest('._prompt-block-front')) {
+        const thisBtn   = e.target.closest('._prompt-block-front')
+              parent    = thisBtn.closest('._prompt-block');
+
+        parent.classList.add('_active');
+
+    } else if(!e.target.closest('._prompt-block')) {
+        document.querySelectorAll('._prompt-block').forEach(element => {
+            element.classList.remove('_active');
+        })
+    }
+
 
 
 
