@@ -450,6 +450,7 @@ body.addEventListener('click', function (e) {
         e.preventDefault();
         if(!filter.classList.contains('_active')) {
             filter.classList.add('_active');
+            header.classList.add('_popup-active');
 
             menu.forEach(elem => {
                 elem.classList.remove('_active')
@@ -463,6 +464,10 @@ body.addEventListener('click', function (e) {
         if(filter.classList.contains('_active')) {
             filter.classList.remove('_active')
             body.classList.remove('_filter-active');
+            setTimeout(() => {
+                header.classList.remove('_popup-active');
+            },200)
+            
         }
     }
 
