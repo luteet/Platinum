@@ -142,8 +142,12 @@ function fade(element, type, duration) {
 
 
 // Попап
+let popupCheck = true, popupCheckClose = true;
 function popup(arg) {
 
+    if(popupCheck) {
+        popupCheck = false;
+    
     let popup, popupBg, popupCloseBtn,
     
         body    = arg.body,
@@ -161,74 +165,80 @@ function popup(arg) {
         return false;
     }
 
-    function removeFunc(popup, removeClass) {
+        function removeFunc(popup, removeClass) {
 
-        fade(popup, 'hide');
-        popup.classList.remove('_active');
+            if(popupCheckClose) {
+                popupCheckClose = false;
 
-        if(removeClass) {
-            header.classList.remove('_popup-active');
+                fade(popup, 'hide');
+                popup.classList.remove('_active');
 
+                setTimeout(() => {
+                    popupCheckClose = true;
+                },400)
+    
+                if(removeClass) {
+                    header.classList.remove('_popup-active');
+    
+                    setTimeout(function() {
+                        
+                        body.classList.remove('_popup-active');
+                        html.style.setProperty('--popup-padding', '0px');
+
+                    },400)
+                }
+            }
+
+            
+            
+            
+            
+        }
+
+        body.classList.remove('_popup-active');
+        html.style.setProperty('--popup-padding', window.innerWidth - body.offsetWidth + 'px');
+        body.classList.add('_popup-active');
+        
+        //window.location.hash = id;
+
+        popup.classList.add('_active');
+        header.classList.add('_popup-active');
+
+        setTimeout(function () {
+            fade(popup, 'show');
+        },100);
+    
+
+    
+
+        popupBg.addEventListener('click', function() {
+            if(document.querySelectorAll('._popup._active').length <= 1) {
+                removeFunc(popup, true);
+            } else {
+                removeFunc(popup, false);
+            }
             setTimeout(function() {
-                
-                body.classList.remove('_popup-active');
-                html.style.setProperty('--popup-padding', '0px');
-    
+                return false;
             },400)
-        }
-        
-        
-        
+        });
+
+        popupCloseBtn.addEventListener('click', function() {
+            if(document.querySelectorAll('._popup._active').length <= 1) {
+                removeFunc(popup, true);
+            } else {
+                removeFunc(popup, false);
+            }
+            setTimeout(function() {
+                return false;
+            },400)
+        });
+
+        setTimeout(() => {
+            popupCheck = true;
+        },400);
+
     }
-
-    const popupActive = document.querySelectorAll('._popup._active');
-
-    //let popupActiveCheck = (popupActive) ? false : true;
-
-    /* popupActive.forEach(element => {
-        element.classList.remove('_active');
-    }) */
-
-    body.classList.remove('_popup-active');
-    html.style.setProperty('--popup-padding', window.innerWidth - body.offsetWidth + 'px');
-    body.classList.add('_popup-active');
-
     
-    
-    //window.location.hash = id;
-
-    popup.classList.add('_active');
-    header.classList.add('_popup-active');
-
-    setTimeout(function () {
-        fade(popup, 'show');
-    },100);
-    
-
-    
-
-    popupBg.addEventListener('click', function() {
-        if(document.querySelectorAll('._popup._active').length <= 1) {
-            removeFunc(popup, true);
-        } else {
-            removeFunc(popup, false);
-        }
-        setTimeout(function() {
-            return false;
-        },400)
-    });
-
-    popupCloseBtn.addEventListener('click', function() {
-        if(document.querySelectorAll('._popup._active').length <= 1) {
-            removeFunc(popup, true);
-        } else {
-            removeFunc(popup, false);
-        }
-        setTimeout(function() {
-            return false;
-        },400)
-    });
-
 }
 
 // Галерея
@@ -887,7 +897,9 @@ function hiddenToggle(id) {
                 pageAddressInit.append(pageAddress);
             }
 
-
+            menu.forEach(elem => {
+                elem.classList.remove('_active')
+            })
 
             hiddenToggle('#hiddenToggle-products-list').show();
 
