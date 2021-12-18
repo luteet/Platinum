@@ -116,6 +116,7 @@ function fade(element, type, duration) {
                 opacity = opacity + 0.02
                 element.style.opacity = opacity;
             } else {
+                element.style.opacity = 1;
                 clearInterval(intervalID);
             }
         }, (duration) ? duration : 1);
@@ -129,6 +130,7 @@ function fade(element, type, duration) {
                 element.style.opacity = opacity;
             } else {
                 clearInterval(intervalID);
+                element.style.opacity = 0;
                 element.style.visibility = 'hidden';
             }
         }, (duration) ? duration : 1);
@@ -159,31 +161,33 @@ function popup(arg) {
         return false;
     }
 
-    function removeFunc(popup, duration) {
+    function removeFunc(popup, removeClass) {
 
-        /* fade(popup, 'hide'); */
         fade(popup, 'hide');
         popup.classList.remove('_active');
-        header.classList.remove('_popup-active');
-        setTimeout(function() {
-            
-            body.classList.remove('_popup-active');
-            html.style.setProperty('--popup-padding', '0px');
-        },(duration) ? duration : 400)
+
+        if(removeClass) {
+            header.classList.remove('_popup-active');
+
+            setTimeout(function() {
+                
+                body.classList.remove('_popup-active');
+                html.style.setProperty('--popup-padding', '0px');
+    
+            },400)
+        }
+        
+        
         
     }
 
     const popupActive = document.querySelectorAll('._popup._active');
 
-    let popupActiveCheck = (popupActive) ? false : true;
+    //let popupActiveCheck = (popupActive) ? false : true;
 
-    popupActive.forEach(element => {
+    /* popupActive.forEach(element => {
         element.classList.remove('_active');
-        /* fade(popup, 'hide'); */
-        //fade(popup, 'hide');
-        /* body.classList.add('_popup-active');
-        html.style.setProperty('--popup-padding',  + 17 + 'px'); */
-    })
+    }) */
 
     body.classList.remove('_popup-active');
     html.style.setProperty('--popup-padding', window.innerWidth - body.offsetWidth + 'px');
@@ -204,14 +208,22 @@ function popup(arg) {
     
 
     popupBg.addEventListener('click', function() {
-        removeFunc(popup);
+        if(document.querySelectorAll('._popup._active').length <= 1) {
+            removeFunc(popup, true);
+        } else {
+            removeFunc(popup, false);
+        }
         setTimeout(function() {
             return false;
         },400)
     });
 
     popupCloseBtn.addEventListener('click', function() {
-        removeFunc(popup);
+        if(document.querySelectorAll('._popup._active').length <= 1) {
+            removeFunc(popup, true);
+        } else {
+            removeFunc(popup, false);
+        }
         setTimeout(function() {
             return false;
         },400)
@@ -276,64 +288,6 @@ const body = document.querySelector('body'),
     burger = document.querySelector('.burger'),
     header = document.querySelector('.header');
 
-  
-
-const   filterDropDownLabel = document.querySelectorAll('._has-filter-drop-down-list'),
-        filterFormRadioLabel = document.querySelectorAll('.filter__form--item-radio-label');
-
-function filterRadioLabelFunc(element) {
-
-    if(!element.classList.contains('_active')) {
-        filterFormRadioLabel.forEach(element => {
-
-            // Если есть выпадающий список в элементе то открывать его
-            if(element.classList.contains('_has-filter-drop-down-list')) {
-
-                let filterDropDownList = element.parentNode.querySelector('._filter-drop-dowm-list._active');
-                
-                if(filterDropDownList) {
-                    slide(filterDropDownList, 'up');
-                    filterDropDownList.classList.remove('_active');
-                }
-                
-            }
-            
-            element.classList.remove('_active');
-            
-        });
-
-        element.classList.add('_active');
-
-
-        if(element.classList.contains('_has-filter-drop-down-list')) {
-            
-            
-
-        }
-
-    }
-
-}
-
-/* filterFormRadioLabel.forEach(element => {
-
-    if(element.classList.contains('_active')) {
-        element.querySelector('input').checked = true;
-        filterRadioLabelFunc(element);
-    }
-
-    // При нажатии на label добавлять input[radio] статус checked
-    element.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        this.querySelector('input').checked = true;
-
-        filterRadioLabelFunc(this);
-        
-    });
-
-}); */
-
 
 
 const   filter          = document.querySelector('.filter'),
@@ -359,6 +313,9 @@ body.addEventListener('click', function (e) {
 
 
 
+
+
+
     if(e.target.closest('._prompt-block-front')) {
         const thisBtn   = e.target.closest('._prompt-block-front')
               parent    = thisBtn.closest('._prompt-block');
@@ -370,6 +327,7 @@ body.addEventListener('click', function (e) {
             element.classList.remove('_active');
         })
     }
+
 
 
 
@@ -414,22 +372,6 @@ body.addEventListener('click', function (e) {
 
 
 
-
-
-    // Фильтр в product-list-page
-    /* if(e.target.closest('.filter__form--item-radio-checkbox-label')) {
-        e.preventDefault();
-        
-        const checkboxLabel         = e.target.closest('.filter__form--item-radio-checkbox-label'),
-              checkboxLabelInput    = checkboxLabel.querySelector('input');
-
-
-        checkboxLabelInput.checked = !checkboxLabelInput.checked;
-
-
-        if(checkboxLabelInput.checked) checkboxLabel.classList.add('_active'); else checkboxLabel.classList.remove('_active');
-
-    } */
 
     if(e.target.closest('.filter__form--item-link._has-filter-drop-down-list')) {
         e.preventDefault();
