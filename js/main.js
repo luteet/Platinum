@@ -252,7 +252,7 @@ function galleryPopup(arg) {
               <button type="button" class="_gallery-popup-close-btn">
                 ✕
               </button>
-              <img src="${arg.link.href}" class="_gallery-popup-img" loading="lazy">
+              <img src="${arg.link.href}" class="_gallery-popup-img">
           </div>
       </div>
       `;
@@ -284,7 +284,11 @@ function galleryPopup(arg) {
       galleryPopup.querySelector('._gallery-popup-bg').addEventListener('click', function() {
         removeGalleryPopup();
       });
-  
+      body.addEventListener('keydown', function(e) {
+          if(e.keyCode == '27') {
+            removeGalleryPopup();   
+          }
+      });
 }
 
 
@@ -303,6 +307,9 @@ const body = document.querySelector('body'),
 const   filter          = document.querySelector('.filter'),
         filterBg        = document.querySelector('.filter__bg'),
         filterOpenBtn   = document.querySelector('._filter-open-btn');
+
+
+
 
 body.addEventListener('click', function (e) {
 
@@ -663,6 +670,29 @@ new Swiper('.recommend-block__slider', {
     }
 });
 
+new Swiper('.product-page__image-slider', {
+  
+    spaceBetween: 30,
+    slidesPerView: 3,
+    centeredSlides: false,
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    /* breakpoints: {
+      992: {
+        slidesPerView: 3,
+        centeredSlides: true,
+    
+      },
+      600: {
+        slidesPerView: 2,
+        centeredSlides: false,
+      },
+    } */
+});
 
 let teachersSlider;
 
