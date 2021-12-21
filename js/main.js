@@ -672,7 +672,7 @@ new Swiper('.recommend-block__slider', {
 
 new Swiper('.product-page__image-slider', {
   
-    spaceBetween: 30,
+    spaceBetween: 15,
     slidesPerView: 3,
     centeredSlides: false,
 
@@ -681,17 +681,16 @@ new Swiper('.product-page__image-slider', {
         prevEl: '.swiper-button-prev',
     },
 
-    /* breakpoints: {
-      992: {
-        slidesPerView: 3,
-        centeredSlides: true,
+    breakpoints: {
+      768: {
+        spaceBetween: 30,
     
       },
-      600: {
+      /* 600: {
         slidesPerView: 2,
         centeredSlides: false,
-      },
-    } */
+      }, */
+    }
 });
 
 let teachersSlider;
