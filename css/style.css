@@ -3468,7 +3468,7 @@ section {
   font-family: var(--main-font);
   z-index: 2;
   width: calc(100vw - 30px);
-  max-width: 200px;
+  max-width: 250px;
   padding: 10px;
   background-color: var(--accent-ultra-dark);
   border-radius: var(--br);
@@ -3859,9 +3859,12 @@ section {
   margin-right: 5px;
 }
 
+.header__nav--lang-select-list {
+  max-width: 150px;
+}
+
 .header__nav--lang-select-item {
   text-align: center;
-  padding-right: 15px;
 }
 
 .header__nav--lang-select-link {
