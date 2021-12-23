@@ -567,6 +567,9 @@ body.addEventListener('click', function (e) {
         let thisBtn = e.target.closest('._read-more-btn'),
             readMoreItem = thisBtn.parentNode.querySelector('._read-more-item');
 
+        if(!readMoreItem) {
+            readMoreItem = thisBtn.closest('._read-more-parent').querySelector('._read-more-item');
+        }
         thisBtn.classList.add('_active');
         readMoreItem.classList.add('_active');
 
@@ -647,12 +650,21 @@ new Swiper('.recommend-block__slider', {
     spaceBetween: 30,
     slidesPerView: 1,
     centeredSlides: false,
-    /* grabCursor: true, */
     loop: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
+    /* on: {
+        init: function () {
+          const pagination = document.querySelector('.swiper-pagination');
+          sliderBulletUpdate(pagination);
+        },
+        slideChange: function () {
+            const pagination = document.querySelector('.swiper-pagination');
+            sliderBulletUpdate(pagination);
+        },
+    }, */
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -686,10 +698,6 @@ new Swiper('.product-page__image-slider', {
         spaceBetween: 30,
     
       },
-      /* 600: {
-        slidesPerView: 2,
-        centeredSlides: false,
-      }, */
     }
 });
 
@@ -806,7 +814,22 @@ function hiddenToggle(id) {
 
 
 
-      
+      function sliderBulletUpdate(pagination) {
+        const bullet = pagination.querySelectorAll('.swiper-pagination-bullet'),
+              activeBullet = pagination.querySelector('.swiper-pagination-bullet-active'),
+              prevActiveBullet = activeBullet.previousElementSibling,
+              nextActiveBullet = activeBullet.nextElementSibling;
+              
+              
+              console.log(activeBullet.nextSibling);
+              bullet.forEach(element => {
+                element.classList.remove('_prev');
+                element.classList.remove('_next');
+              })
+
+              if(prevActiveBullet) prevActiveBullet.classList.add('_prev');
+              if(nextActiveBullet) nextActiveBullet.classList.add('_next');
+      }
       
 
 
@@ -892,6 +915,7 @@ function hiddenToggle(id) {
             }
 
             if(document.querySelector('.teachers__slider')) {
+                
                 teachersSlider = new Swiper('.teachers__slider', {
   
                     spaceBetween: 30,
@@ -900,6 +924,16 @@ function hiddenToggle(id) {
                       el: '.swiper-pagination',
                       clickable: true,
                     },
+                    on: {
+                        init: function () {
+                          const pagination = document.querySelector('.swiper-pagination');
+                          sliderBulletUpdate(pagination);
+                        },
+                        slideChange: function () {
+                            const pagination = document.querySelector('.swiper-pagination');
+                            sliderBulletUpdate(pagination);
+                        },
+                    }
                     
                 });
             }
@@ -1021,7 +1055,40 @@ function hiddenToggle(id) {
     
     scrollPage();
     
+$(function() {
+    $('.popup-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+        callbacks: {
+            open: function() {
+                body.style.setProperty('overflow', 'visible');
+                html.style.setProperty('--popup-padding', window.innerWidth - body.offsetWidth + 'px');
+                body.classList.add('_popup-active');
 
+            },
+            close: function() {
+                body.classList.remove('_popup-active');
+                html.style.setProperty('--popup-padding', 0 + 'px');
+            }
+        },
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+            tPrev: 'Назад (клавиша клавиша стрелка влево)', // Alt text on left arrow
+            tNext: 'Дальше (клавиша стрелка вправо)',
+            tCounter: '<span class="mfp-counter">%curr% из %total%</span>',
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+			titleSrc: function(item) {
+				return item.el.attr('title');
+			}
+		}
+	});
+});
 
 /* // Анимация {
 
