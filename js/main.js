@@ -645,6 +645,35 @@ function is_touch_device() {
 
 // Слайдеры {
 
+    function sliderBulletUpdate(pagination) {
+        let bullet = pagination.querySelectorAll('.swiper-pagination-bullet'),
+              activeBullet = pagination.querySelector('.swiper-pagination-bullet-active'),
+              prevActiveBullet,
+              nextActiveBullet;
+
+              try {
+                prevActiveBullet = activeBullet.previousElementSibling;
+              }
+              catch {
+                prevActiveBullet = false;
+              }
+
+              try {
+                nextActiveBullet = activeBullet.nextElementSibling;
+              }
+              catch {
+                nextActiveBullet = false;
+              }
+              
+              bullet.forEach(element => {
+                element.classList.remove('_prev');
+                element.classList.remove('_next');
+              })
+
+              if(prevActiveBullet) prevActiveBullet.classList.add('_prev');
+              if(nextActiveBullet) nextActiveBullet.classList.add('_next');
+      }
+
 new Swiper('.recommend-block__slider', {
   
     spaceBetween: 30,
@@ -655,16 +684,16 @@ new Swiper('.recommend-block__slider', {
       el: '.swiper-pagination',
       clickable: true,
     },
-    /* on: {
+    on: {
         init: function () {
-          const pagination = document.querySelector('.swiper-pagination');
+          const pagination = document.querySelector('.recommend-block__slider .swiper-pagination');
           sliderBulletUpdate(pagination);
         },
         slideChange: function () {
-            const pagination = document.querySelector('.swiper-pagination');
+          const pagination = document.querySelector('.recommend-block__slider .swiper-pagination');
             sliderBulletUpdate(pagination);
         },
-    }, */
+    },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -814,22 +843,7 @@ function hiddenToggle(id) {
 
 
 
-      function sliderBulletUpdate(pagination) {
-        const bullet = pagination.querySelectorAll('.swiper-pagination-bullet'),
-              activeBullet = pagination.querySelector('.swiper-pagination-bullet-active'),
-              prevActiveBullet = activeBullet.previousElementSibling,
-              nextActiveBullet = activeBullet.nextElementSibling;
-              
-              
-              console.log(activeBullet.nextSibling);
-              bullet.forEach(element => {
-                element.classList.remove('_prev');
-                element.classList.remove('_next');
-              })
-
-              if(prevActiveBullet) prevActiveBullet.classList.add('_prev');
-              if(nextActiveBullet) nextActiveBullet.classList.add('_next');
-      }
+      
       
 
 
